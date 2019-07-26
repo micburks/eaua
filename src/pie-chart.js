@@ -18,24 +18,20 @@ function arcs (data) {
 }
 
 function PieChart(props) {
-  React.useEffect(() => {
-    const svg = d3.select('.pie-chart')
-      .append('svg')
-      .attr('width', width)
-      .attr('height', height)
+  let arcData;
+  React.useMemo(() => {
+    arcData = arcs(props.data);
+  }, [props.data]);
 
-    svg.selectAll('.arc')
-      .data(arcs(props.data))
-      .enter()
-      .append('g')
-      .attr('class', 'arc')
-      .attr('transform', `translate(${width / 2}, ${height / 2})`)
-      .append('path')
-      .attr('fill', (d, i) => props.colors[i])
-      .attr('d', arc)
-  }, [props.data, props.colors]);
-
-  return <div className='pie-chart'/>
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height}>
+      {arcData && arcData.map((arcDatum, i) => (
+        <g key={i} transform={`translate(${width / 2}, ${height / 2})`}>
+          <path d={arc(arcDatum)} fill={props.colors[i]} />
+        </g>
+      ))}
+    </svg>
+  );
 }
 
 export default PieChart;
