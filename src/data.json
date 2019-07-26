@@ -1,0 +1,47 @@
+{
+  "data": [{
+    "name": "Chico's",
+    "address": "1331 addr blvd ne",
+    "facets": [{
+      "label": "Decor",
+      "value": 0.0625
+    }, {
+      "label": "Classy dinner",
+      "value": 0.5
+    }, {
+      "label": "Customer service",
+      "value": 0.125
+    }, {
+      "label": "Another A",
+      "value": 0.03125
+    }, {
+      "label": "Cocktails",
+      "value": 0.25
+    }, {
+      "label": "Another B",
+      "value": 0.03125
+    }]
+  }, {
+    "name": "Another restaurant",
+    "address": "221B Baker St",
+    "facets": [{
+      "label": "Comfort food",
+      "value": 0.0625
+    }, {
+      "label": "Atmosphere",
+      "value": 0.7
+    }, {
+      "label": "Customer service",
+      "value": 0.025
+    }, {
+      "label": "Yellow",
+      "value": 0.03125
+    }, {
+      "label": "Music",
+      "value": 0.15
+    }, {
+      "label": "Another B",
+      "value": 0.03125
+    }]
+  }]
+}
