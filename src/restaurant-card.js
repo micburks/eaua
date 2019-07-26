@@ -69,7 +69,6 @@ function RestaurantCard(props) {
   React.useMemo(() => {
     const sortedFacets = facets.sort((a, b) => b.value - a.value);
     chartData = sortedFacets.map(facet => facet.value);
-    console.log(chartData)
     topFacets = sortedFacets.slice(0, 4);
   }, [props.restaurant]);
 
