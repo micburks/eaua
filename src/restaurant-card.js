@@ -3,6 +3,7 @@ import {styled} from 'styletron-react';
 import PieChart from './pie-chart.js';
 
 const Card = styled('div', {
+  display: 'inline-block',
   width: '250px',
   height: '400px',
   margin: '10px',
