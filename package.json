@@ -27,9 +27,11 @@
   },
   "scripts": {
     "prebuild": "rm -rf ./build",
-    "build": "webpack",
+    "build": "yarn build:client && yarn build:server",
+    "build:client": "webpack --config webpack.client.js",
+    "build:server": "webpack --config webpack.server.js",
     "lint": "eslint .",
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --config webpack.client.js",
     "test": "jest"
   }
 }
