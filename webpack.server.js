@@ -9,6 +9,7 @@ module.exports = {
   output: {
     path: path.resolve('./functions'),
     filename: '[name].js',
+    libraryTarget: 'commonjs',
   },
   module: {
     rules: [
