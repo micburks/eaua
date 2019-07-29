@@ -3,6 +3,7 @@ const webpack = require('webpack');
 
 module.exports = {
   mode: 'production',
+  target: 'node',
   entry: {
     datum: './src/functions/datum.js',
   },
@@ -18,22 +19,41 @@ module.exports = {
           {
             test: /\.js$/,
             include: path.resolve('./src/functions'),
-            loader: require.resolve('babel-loader'),
-            options: {
-              cacheDirectory: true,
-              cacheCompression: true,
-              compact: true,
+            use: {
+              loader: require.resolve('babel-loader'),
+              options: {
+                cacheDirectory: true,
+                cacheCompression: true,
+                compact: true,
+              },
+            },
+          },
+          {
+            test: /\.(js|mjs)$/,
+            include: /node_modules\/aquameta/,
+            use: {
+              loader: require.resolve('babel-loader'),
+              options: {
+                babelrc: false,
+                plugins: ['@babel/plugin-syntax-dynamic-import'],
+                cacheDirectory: true,
+                cacheCompression: true,
+                compact: true,
+                sourceMaps: false,
+              },
             },
           },
           {
             test: /\.(js|mjs)$/,
             exclude: /@babel(?:\/|\\{1,2})runtime/,
-            loader: require.resolve('babel-loader'),
-            options: {
-              compact: true,
-              cacheDirectory: true,
-              cacheCompression: true,
-              sourceMaps: false,
+            use: {
+              loader: require.resolve('babel-loader'),
+              options: {
+                cacheDirectory: true,
+                cacheCompression: true,
+                compact: true,
+                sourceMaps: false,
+              },
             },
           },
         ],

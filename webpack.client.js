@@ -22,22 +22,26 @@ module.exports = {
           {
             test: /\.js$/,
             include: path.resolve('./src'),
-            loader: require.resolve('babel-loader'),
-            options: {
-              cacheDirectory: true,
-              cacheCompression: true,
-              compact: true,
+            use: {
+              loader: require.resolve('babel-loader'),
+              options: {
+                cacheDirectory: true,
+                cacheCompression: true,
+                compact: true,
+              },
             },
           },
           {
             test: /\.(js|mjs)$/,
             exclude: /@babel(?:\/|\\{1,2})runtime/,
-            loader: require.resolve('babel-loader'),
-            options: {
-              compact: true,
-              cacheDirectory: true,
-              cacheCompression: true,
-              sourceMaps: false,
+            use: {
+              loader: require.resolve('babel-loader'),
+              options: {
+                cacheDirectory: true,
+                cacheCompression: true,
+                compact: true,
+                sourceMaps: false,
+              },
             },
           },
         ],
